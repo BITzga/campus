@@ -7,12 +7,21 @@
         <el-row>
   <el-timeline >
             <el-timeline-item
-             v-for="(activity, index) in activities"
+             v-for="(Invitation, index) in Invitations"
              :key="index"
-             :timestamp="activity.timestamp">
+             :timestamp="Invitation.timestamp">
                 <el-card>
-                    
-                    {{activity}}
+                <p>{{Invitation.title}}</p>
+                <p>地点：{{Invitation.position}}   活动时间:{{Invitation.deadline}}</p>
+                <p>已有{{Invitation.followCount}}人加入</p>
+                <div v-for="url in Invitation.urls"  :key="url">
+                    <el-image
+                        style="width: 100px; height: 100px"
+                        :src="url"
+                        :fit="Invitation.fit">
+                    </el-image>
+                </div>
+                    {{Invitation.content}}
                 </el-card>
                 
             </el-timeline-item>
@@ -30,18 +39,30 @@ export default {
     data(){
         return{
 
-            activities: [{
-            content: '活动按期开始',
-            timestamp: '2018-04-15'
-            }, {
-            content: '通过审核',
-            timestamp: '2018-04-13'
-            }, {
-            content: '创建成功',
-            timestamp: '2018-04-11'
+            Invitations: [{
+                id:'',
+                ownerId:'',
+                tag:'篮球',
+                urls:['https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg','https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'],
+                comments:[],
+                title:'南校区篮球场有人吗',
+                content: '活动按期开始',
+                views:'5',
+                likes:'4',
+                sendDate: '2021-04-15',
+                deadline:'2021-04-16',
+                followCount:'4',
+                followers:[],
+                position:'南校区',
+                fit:'fill'
             }]
         }       
 
     },
+    methods:{
+
+
+
+    }
 }
 </script>
