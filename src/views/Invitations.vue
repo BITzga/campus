@@ -55,14 +55,28 @@ export default {
                 followers:[],
                 position:'南校区',
                 fit:'fill'
-            }]
+            }],
+            pageSize:'',
+            pageCount:'',
+            status:''
         }       
 
     },
-    methods:{
+     methods: {
+      getInvitations(currentPage) {
+        const _this = this
+        _this.$axios.get("/Invitations?currentPage=" + currentPage).then(res => {
+          console.log(res)
+          _this.Invitations = res.data.data
+          _this.pageSize = res.data.pageSize
+          _this.pageCount = res.data.pageCount
+          _this.status = res.data.status
 
-
-
+        })
+      }
+    },
+    created() {
+      this.getInvitations(0)
     }
 }
 </script>

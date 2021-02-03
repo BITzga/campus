@@ -1,9 +1,9 @@
 <template>
   <div>
-    <invitations></invitations>
-    
-    <!-- <invitation-edit></invitation-edit>
-    <img alt="Vue logo" src="./assets/logo.png">
+    <!-- <invitations></invitations>
+     -->
+     <invitation-edit></invitation-edit>
+    <!-- <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </div>
 
@@ -11,16 +11,16 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-// import InvitationEdit from './views/InvitationEdit.vue'
-import Invitations from './views/Invitations.vue'
+ import InvitationEdit from './views/InvitationEdit.vue'
+// import Invitations from './views/Invitations.vue'
 
 
 export default {
   name: 'App',
   components: {
     // HelloWorld,
-    // InvitationEdit,
-    Invitations,
+     InvitationEdit,
+    // Invitations,
 
   }
 }
