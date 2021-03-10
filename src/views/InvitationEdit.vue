@@ -1,6 +1,5 @@
 <template>
     <div>
-        <nav-menu></nav-menu>
         <el-form ref="form" :model="form" label-width="80px">
         <el-form-item label="活动名称">
             <el-input v-model="form.name"></el-input>
@@ -53,6 +52,9 @@
         <el-form-item label="限制人数">
             <el-input type="textarea" v-model="form.desc"></el-input>
         </el-form-item>
+        <el-form-item label="上传图片">
+            <upload></upload>
+        </el-form-item>      
         <el-form-item>
             <el-button type="primary" @click="onSubmit">立即创建</el-button>
             <el-button>取消</el-button>
@@ -62,23 +64,31 @@
     
 </template>
 <script>
-import NavMenu from '../components/NavMenu.vue'
+import upload from '../components/upload.vue';
 export default {
+  components: { upload },
         data() {
       return {
         form: {
+          ownerId:0,
+          imgUrl:[],
           name: '',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
+          title:'',
+          context:'',
+          sendDate:'',
+          activity:{
+            tag: '',
+            deadline: '',
+            start: '',
+            end: '',
+            position: '',
+            followCount: ''
+          }
+          
+
         }
       }
     },
-  components: { NavMenu },
     name:'InvitationEdit',
        methods: {
       onSubmit() {
